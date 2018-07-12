@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abstractions.CQRS;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

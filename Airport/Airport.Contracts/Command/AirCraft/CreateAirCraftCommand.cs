@@ -10,7 +10,7 @@ namespace Airport.Contract.Command.AirCraft
         public string Name { get; set; }
         public Guid TypeId { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public DateTim TimeSpan { get; set; }
+        public DateTime TimeSpan { get; set; }
 
     }
 }
