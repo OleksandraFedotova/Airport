@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.Abstractions", "Air
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.Infrastructure", "Airport.Infrastructure\Airport.Infrastructure.csproj", "{08DC363B-5BD8-472D-BE6D-F625F1D40FD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.Contracts", "Airport.Contracts\Airport.Contracts.csproj", "{224D13A9-56AF-4E32-AA58-CF4D13F6D705}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airport.Contract", "Airport.Contracts\Airport.Contract.csproj", "{224D13A9-56AF-4E32-AA58-CF4D13F6D705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
