@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Airport.Contract.Command.Departure
+namespace Airport.Contract.Query.Departure
 {
-    class DeleteDepartureCommand: ICommand
+    public class DepartureByIdQuery:IQuery<DepartureByIdResponse>
     {
         public Guid DepartureId { get; set; }
     }

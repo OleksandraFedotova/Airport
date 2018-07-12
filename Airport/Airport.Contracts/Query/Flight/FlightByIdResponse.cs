@@ -3,11 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Airport.Contract.Command.Flight
+namespace Airport.Contract.Query.Flight
 {
-    class UpdateFlightCommand : ICommand
+    public class FlightByIdResponse:IResponse
     {
-        public Guid FlightId{get;set;}
         public int Number { get; set; }
         public string DeparturePoint { get; set; }
         public DateTime DepartureTime { get; set; }

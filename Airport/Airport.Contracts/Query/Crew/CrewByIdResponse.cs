@@ -3,13 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Airport.Contract.Command.Crew
+namespace Airport.Contract.Query.Crew
 {
-    class CreateCrewCommand : ICommand
+  public  class CrewByIdResponse:IResponse 
     {
         public IEnumerable<Stewardress> Stewardresses { get; set; }
         public Pilot CrewPilot { get; set; }
-
         public class Pilot
         {
             public string FirstName { get; set; }

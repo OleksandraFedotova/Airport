@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Abstractions.CQRS;
+using System;
 
 namespace Airport.Contract.Command.Crew
 {
-    class DeleteCrewCommand
+    class DeleteCrewCommand:ICommand
     {
+        public Guid CrewId { get; set; }
     }
 }

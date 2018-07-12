@@ -7,5 +7,10 @@ namespace Airport.Contract.Command.AirCraft
 {
     class UpdateAirCraftCommand : ICommand 
     {
+        public Guid AirCraftId { get; set; }
+        public string Name { get; set; }
+        public Guid TypeId { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public DateTime TimeSpan { get; set; }
     }
 }
