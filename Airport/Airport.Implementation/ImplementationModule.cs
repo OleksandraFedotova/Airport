@@ -16,6 +16,9 @@ namespace Airport.Implementation
                 .AsClosedTypesOf(typeof(IQueryHandler<,>))
                 .AsImplementedInterfaces();
 
+            builder.Register(c => new MapperConfiguration(cfg => cfg.AddProfile(new ImplementationProfile()))).AsSelf()
+                .SingleInstance();
+
             builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper(c.Resolve)).As<IMapper>()
                 .SingleInstance();
         }
