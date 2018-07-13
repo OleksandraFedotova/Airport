@@ -3,8 +3,11 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
@@ -13,5 +16,7 @@
     <ProjectReference Include="..\Airport.Abstractions\Airport.Abstractions.csproj" />
     <ProjectReference Include="..\Airport.Contracts\Airport.Contract.csproj" />
     <ProjectReference Include="..\Airport.Domain\Airport.Domain.csproj" />
+    <ProjectReference Include="..\Airport.Implementation\Airport.Implementation.csproj" />
+    <ProjectReference Include="..\Airport.Infrastructure\Airport.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

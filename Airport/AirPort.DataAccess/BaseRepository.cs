@@ -7,31 +7,49 @@ using System.Threading.Tasks;
 
 namespace AirPort.DataAccess
 {
-    public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : IEntity
+    public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : IEntity
     {
-        public Task Create(TEntity entity)
+        protected readonly IDictionary<Guid, TEntity> _entities;
+
+        public BaseRepository()
         {
-            throw new NotImplementedException();
+            _entities = new Dictionary<Guid, TEntity>();
+
+            AddSeeds();
         }
 
-        public Task Delete(Guid id)
+        protected abstract void AddSeeds();
+       
+
+        public Task Create(TEntity entity)
         {
-            throw new NotImplementedException();
+            _entities.Add(entity.Id, entity);
+
+            return Task.CompletedTask;
+        }
+
+        public Task Delete(TEntity entity)
+        {
+            _entities.Remove(entity.Id);
+
+            return Task.CompletedTask;
         }
 
         public IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _entities.Values.AsQueryable();
         }
 
         public Task<TEntity> GetById(Guid id)
         {
-            throw new NotImplementedException();
+           return Task.FromResult(_entities[id]);
         }
 
-        public Task Update(Guid id, TEntity entity)
+        public Task Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _entities[entity.Id] = entity;
+
+            return Task.CompletedTask;
         }
     }
 }

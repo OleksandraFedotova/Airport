@@ -1,4 +1,6 @@
-﻿namespace Airport.Web.Controllers
+﻿using System;
+
+namespace Airport.Web.Controllers
 {
     public class CreateAirCraftModel
     {

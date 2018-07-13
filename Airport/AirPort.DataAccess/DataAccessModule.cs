@@ -1,7 +1,4 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AirPort.DataAccess
 {
@@ -9,7 +6,7 @@ namespace AirPort.DataAccess
     {
         protected override void Load(ContainerBuilder builder)
         {
-            /*RegisterContext(builder);*/
+
             builder.RegisterType<FlightRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<CrewRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<AirCraftRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
@@ -18,6 +15,7 @@ namespace AirPort.DataAccess
             builder.RegisterType<StewardessRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<TicketRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<DepartureRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+
         }
     }
 }
