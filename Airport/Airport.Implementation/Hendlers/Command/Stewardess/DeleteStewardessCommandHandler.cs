@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Command.Pilot
 {
-    public class DeleteStewardressCommandHandler : ICommandHandler<DeleteStewardressCommand>
+    public class DeleteStewardressCommandHandler : ICommandHandler<DeleteStewardessCommand>
     {
         private readonly StewardessRepository _stewardessRepository;
 
@@ -16,16 +16,16 @@ namespace Airport.Implementation.Hendlers.Command.Pilot
         }
 
 
-        public async Task ExecuteAsync(DeleteStewardressCommand command)
+        public async Task ExecuteAsync(DeleteStewardessCommand command)
         {
-            var stewardess = await _stewardessRepository.GetById(command.StewardressId);
+            var stewardess = await _stewardessRepository.GetById(command.StewardessId);
 
             if (stewardess != null)
             {
                 throw new Exception("Stewardess with same Id already exists");
             }
 
-            await _stewardessRepository.Delete(command.StewardressId);
+            await _stewardessRepository.Delete(command.StewardessId);
         }
     }
 }

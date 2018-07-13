@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Command
 {
-    public class CreateStewardessCommandHandler : ICommandHandler<CreateStewardressCommand>
+    public class CreateStewardessCommandHandler : ICommandHandler<CreateStewardessCommand>
     {
         private readonly StewardessRepository _stewardessRepository;
         private readonly IMapper _mapper;
@@ -18,7 +18,7 @@ namespace Airport.Implementation.Hendlers.Command
             _mapper = mapper;
         }
 
-        public async Task ExecuteAsync(CreateStewardressCommand command)
+        public async Task ExecuteAsync(CreateStewardessCommand command)
         {
             if (await _stewardessRepository.GetById(command.Id) != null)
             {

@@ -27,7 +27,7 @@ namespace Airport.Implementation.Hendlers.Command
 
             airCraftType.LoadCapacity = command.LoadCapacity;
             airCraftType.Model = command.Model ?? airCraftType.Model;
-            airCraftType.Places = command.Places;
+            airCraftType.Seats = command.Seats;
 
             await _airCraftTypeRepository.Update(command.AirCraftTypeId, airCraftType);
         }

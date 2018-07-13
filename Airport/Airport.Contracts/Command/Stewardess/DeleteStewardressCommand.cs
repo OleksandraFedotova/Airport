@@ -3,8 +3,8 @@ using System;
 
 namespace Airport.Contract.Command.Stewardress
 {
-    public class DeleteStewardressCommand : ICommand
+    public class DeleteStewardessCommand : ICommand
     {
-        public Guid StewardressId { get; set; }
+        public Guid StewardessId { get; set; }
     }
 }

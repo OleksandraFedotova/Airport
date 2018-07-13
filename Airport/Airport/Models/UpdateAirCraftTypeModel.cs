@@ -1,11 +1,10 @@
 ﻿using System;
-using Airport.Domain.Repositiories;
 
-namespace Airport.Domain.Entities
+namespace Airport.Web.Controllers
 {
-    public class AirCraftType : IEntity
+    public class UpdateAirCraftTypeModel
     {
-        public Guid Id { get; set; }
+        public Guid AirCraftTypeId { get; set; }
         public string Model { get; set; }
         public int Seats { get; set; }
         public int LoadCapacity { get; set; }

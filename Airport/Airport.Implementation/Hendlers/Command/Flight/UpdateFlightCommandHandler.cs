@@ -35,7 +35,6 @@ namespace Airport.Implementation.Hendlers.Command
             flight.Destination = command.Destination ?? flight.Destination;
             flight.TimeOfArrival = command.TimeOfArrival;
             flight.Number = command.Number;
-            flight.Tickets = null;
             flight.Tickets=_ticketRepository.GetAll().Where(y=>command.TicketsId.Contains(y.Id));
 
             await _flightRepository.Update(command.FlightId, flight);

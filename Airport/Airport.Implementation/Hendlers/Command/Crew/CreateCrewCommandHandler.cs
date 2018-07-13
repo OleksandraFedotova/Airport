@@ -1,8 +1,8 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Crew;
 using AirPort.DataAccess;
-using AutoMapper;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Command
@@ -10,12 +10,14 @@ namespace Airport.Implementation.Hendlers.Command
     public class CreateCrewCommandHandler : ICommandHandler<CreateCrewCommand>
     {
         private readonly CrewRepository _crewRepository;
-        private readonly IMapper _mapper;
+        private readonly PilotRepository _pilotRepository;
+        private readonly StewardessRepository _stewardessRepository;
 
-        public CreateCrewCommandHandler(CrewRepository crewRepository, IMapper mapper)
+        public CreateCrewCommandHandler(CrewRepository crewRepository, PilotRepository pilotRepository, StewardessRepository stewardessRepository)
         {
             _crewRepository = crewRepository;
-            _mapper = mapper;
+            _pilotRepository = pilotRepository;
+            _stewardessRepository = stewardessRepository;
         }
 
         public async Task ExecuteAsync(CreateCrewCommand command)
@@ -25,7 +27,12 @@ namespace Airport.Implementation.Hendlers.Command
                 throw new Exception("Crew with same Id already exists");
             }
 
-            var crew = _mapper.Map<Airport.Domain.Entities.Crew>(command);
+            var crew = new Domain.Entities.Crew
+            {
+                Id = command.Id,
+                Pilot = _pilotRepository.GetById(command.PilotId).Result,
+                Stewardesses = _stewardessRepository.GetAll().Where(y => command.StewardressesId.Contains(y.Id))
+            };
 
             await _crewRepository.Create(crew);
         }

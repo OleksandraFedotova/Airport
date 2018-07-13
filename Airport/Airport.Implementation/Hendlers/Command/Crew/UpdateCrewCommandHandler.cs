@@ -29,9 +29,8 @@ namespace Airport.Implementation.Hendlers.Command
                 throw new Exception("Crew with same Id already exists");
             }
 
-            crew.Pilot = null;
+           
             crew.Pilot = _pilotRepository.GetById(command.PilotId).Result;
-            crew.Stewardesses = null;
             crew.Stewardesses = _stewardessRepository.GetAll().Where(y => command.StewardressesId.Contains(y.Id));
 
             await _crewRepository.Update(command.CrewId, crew);

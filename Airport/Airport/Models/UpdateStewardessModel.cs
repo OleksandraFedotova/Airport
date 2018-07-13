@@ -1,9 +1,8 @@
-﻿using Abstractions.CQRS;
-using System;
+﻿using System;
 
-namespace Airport.Contract.Command.Stewardress
+namespace Airport.Web.Controllers
 {
-    public class CreateStewardessCommand : ICommand
+    public class UpdateStewardessModel
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }

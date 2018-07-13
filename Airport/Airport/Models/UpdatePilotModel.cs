@@ -1,11 +1,10 @@
-﻿using Abstractions.CQRS;
-using System;
+﻿using System;
 
-namespace Airport.Contract.Command.Pilot
+namespace Airport.Web.Controllers
 {
-    public class CreatePilotCommand :ICommand
+    public class UpdatePilotModel
     {
-        public Guid Id { get; set; }
+        public Guid PilotId {get;set;}
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
