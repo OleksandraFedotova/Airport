@@ -1,12 +1,11 @@
 ﻿using Abstractions.CQRS;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Airport.Contract.Query.Flight
 {
-    public class FlightByIdResponse:IResponse
+    public class FlightByIdResponse : IResponse
     {
+        public Guid Id { get; private set; }
         public int Number { get; set; }
         public string DeparturePoint { get; set; }
         public DateTime DepartureTime { get; set; }

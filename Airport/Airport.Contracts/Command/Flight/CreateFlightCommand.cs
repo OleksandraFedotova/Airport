@@ -5,14 +5,14 @@ using System.Text;
 
 namespace Airport.Contract.Command.Flight
 {
-    class CreateFlightCommand : ICommand
+    public class CreateFlightCommand : ICommand
     {
+        public Guid Id { get; set; }
         public int Number { get; set; }
         public string DeparturePoint{get;set;}
         public DateTime DepartureTime { get; set; }
         public string Destination { get; set; }
         public DateTime TimeOfArrival{ get; set; }
-        public Guid TicketId { get; set; }
-
-}
+        public IEnumerable<Guid> TicketsId { get; set; }
+    }
 }

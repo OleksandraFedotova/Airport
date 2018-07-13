@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Airport.Contract.Command.AirCraft
 {
-    class DeleteAirCraftCommand : ICommand 
+    public class DeleteAirCraftCommand : ICommand 
     {
         public Guid AirCraftId { get; set; }
     }

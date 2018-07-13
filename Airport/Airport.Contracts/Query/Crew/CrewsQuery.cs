@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Abstractions.CQRS;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Airport.Contract.Query.Crew
 {
-    class CrewsQuery
+   public class CrewsQuery:IQuery<CrewsResponse>
     {
     }
 }

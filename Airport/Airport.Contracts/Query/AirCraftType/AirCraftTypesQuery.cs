@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Abstractions.CQRS;
 
 namespace Airport.Contract.Query.AirCraftType
 {
-    class AirCraftTypesQuery
+    public class AirCraftTypesQuery : IQuery<AirCraftTypesResponse>
     {
     }
 }

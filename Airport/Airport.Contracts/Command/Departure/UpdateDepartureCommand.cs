@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Airport.Contract.Command.Departure
 {
-    class UpdateDepartureCommand: ICommand
+    public class UpdateDepartureCommand: ICommand
     {
         public Guid DepartureId { get; set; }
         public int FlightNumber { get; set; }

@@ -3,11 +3,12 @@ using System;
 
 namespace Airport.Contract.Command.Pilot
 {
-    class CreatePilotCommand :ICommand
+    public class CreatePilotCommand :ICommand
     {
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        DateTime DateOfBirth { get; set; }
-        int Experience { get; set; }
+        public Guid Id { get; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public int Experience { get; set; }
     }
 }

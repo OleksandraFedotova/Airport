@@ -1,11 +1,8 @@
 ﻿using Abstractions.CQRS;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Airport.Contract.Query.Stewardess
 {
-    public class StewardessesQuery: IQuery<StewardessesResponse>
+    public class StewardessesQuery : IQuery<StewardessesResponse>
     {
     }
 }

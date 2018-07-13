@@ -2,7 +2,7 @@
 
 namespace Airport.Contract.Query.Pilot
 {
-    class PilotsQuery : IQuery<PilotsResponse>
+    public class PilotsQuery : IQuery<PilotsResponse>
     {
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Airport.Contract.Command.AirCraftType
 {
-    class UpdateAirCraftTypeCommandv : ICommand
+    public class UpdateAirCraftTypeCommand : ICommand
     {
-        public Guid AirCraftType { get; set; }
+        public Guid AirCraftTypeId { get; set; }
         public string Model { get; set; }
         public int Places { get; set; }
         public int LoadCapacity { get; set; }

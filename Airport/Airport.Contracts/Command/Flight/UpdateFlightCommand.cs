@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Airport.Contract.Command.Flight
 {
-    class UpdateFlightCommand : ICommand
+    public class UpdateFlightCommand : ICommand
     {
         public Guid FlightId{get;set;}
         public int Number { get; set; }
@@ -13,6 +13,6 @@ namespace Airport.Contract.Command.Flight
         public DateTime DepartureTime { get; set; }
         public string Destination { get; set; }
         public DateTime TimeOfArrival { get; set; }
-        public Guid TicketId { get; set; }
+        public IEnumerable<Guid> TicketsId { get; set; }
     }
 }

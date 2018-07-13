@@ -3,10 +3,11 @@ using System;
 
 namespace Airport.Contract.Command.Stewardress
 {
-    class CreateStewardressCommand :ICommand
+    public class CreateStewardressCommand : ICommand
     {
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        DateTime DateOfBirth { get; set; }
+        public Guid Id { get; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
     }
 }
