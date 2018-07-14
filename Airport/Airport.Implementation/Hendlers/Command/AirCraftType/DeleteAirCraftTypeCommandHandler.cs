@@ -1,10 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.AirCraftType;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Command.AirCraftType
@@ -22,9 +19,9 @@ namespace Airport.Implementation.Hendlers.Command.AirCraftType
         {
             var airCraftType = await _airCraftTypeRepository.GetById(command.AirCraftTypeId);
 
-            if (airCraftType != null)
+            if (airCraftType == null)
             {
-                throw new Exception("AirCraftType with same Id already exists");
+                throw new Exception("AirCraftType with this Id does not exist");
             }
 
             await _airCraftTypeRepository.Delete(airCraftType);

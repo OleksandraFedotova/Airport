@@ -1,11 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Flight;
-using Airport.Contract.Command.Pilot;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Command.Pilot
@@ -23,9 +19,9 @@ namespace Airport.Implementation.Hendlers.Command.Pilot
         {
             var flight = await _flightRepository.GetById(command.FlightId);
 
-            if (flight != null)
+            if (flight == null)
             {
-                throw new Exception("Flight with same Id already exists");
+                throw new Exception("Flight with this Id does not exist");
             }
 
             await _flightRepository.Delete(flight);

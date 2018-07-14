@@ -1,10 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Departure;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Command.Departure
@@ -22,9 +19,9 @@ namespace Airport.Implementation.Hendlers.Command.Departure
         {
             var departure = await _departureRepository.GetById(command.DepartureId);
 
-            if (departure != null)
+            if (departure == null)
             {
-                throw new Exception("Departure with same Id already exists");
+                throw new Exception("Departure with this Id does not exist");
             }
 
             await _departureRepository.Delete(departure);

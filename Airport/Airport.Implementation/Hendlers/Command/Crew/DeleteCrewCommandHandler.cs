@@ -1,7 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Crew;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using System;
 using System.Threading.Tasks;
 
@@ -20,9 +19,9 @@ namespace Airport.Implementation.Hendlers.Command.Crew
         {
             var crew = await _crewRepository.GetById(command.CrewId);
 
-            if (crew != null)
+            if (crew == null)
             {
-                throw new Exception("Crew with same Id already exists");
+                throw new Exception("Crew with this Id does not exist");
             }
 
             await _crewRepository.Delete(crew);

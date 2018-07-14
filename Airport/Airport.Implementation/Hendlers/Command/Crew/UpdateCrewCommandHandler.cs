@@ -1,7 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Crew;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,8 +28,6 @@ namespace Airport.Implementation.Hendlers.Command
             {
                 throw new Exception("Crew with this Id does not exist");
             }
-
-
 
             crew.Pilot = _pilotRepository.GetById(command.PilotId).Result;
             crew.Stewardesses = _stewardessRepository.GetAll().Where(y => command.StewardressesId.Contains(y.Id));

@@ -1,8 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Pilot;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
-using AutoMapper;
 using System;
 using System.Threading.Tasks;
 
@@ -26,8 +24,8 @@ namespace Airport.Implementation.Hendlers.Command
                 throw new Exception("Pilot with this Id does not exist");
             }
 
-            pilot.FirstName = command.FirstName??pilot.FirstName;
-            pilot.LastName = command.LastName??pilot.LastName;
+            pilot.FirstName = command.FirstName ?? pilot.FirstName;
+            pilot.LastName = command.LastName ?? pilot.LastName;
             pilot.DateOfBirth = command.DateOfBirth;
             pilot.Experience = command.Experience;
 

@@ -1,5 +1,4 @@
 ﻿using Abstractions.CQRS;
-using Airport.Contract.Command.Pilot;
 using Airport.Contract.Command.Ticket;
 using Airport.Domain.Repositiories;
 using System;
@@ -19,6 +18,11 @@ namespace Airport.Implementation.Hendlers.Command
         public async Task ExecuteAsync(UpdateTicketCommand command)
         {
             var ticket = await _ticketRepository.GetById(command.Id);
+
+            if (ticket == null)
+            {
+                throw new Exception("Ticket with this Id does not exist");
+            }
 
             ticket.Price = command.Price;
             ticket.FlightNumber = command.FlightNumber;

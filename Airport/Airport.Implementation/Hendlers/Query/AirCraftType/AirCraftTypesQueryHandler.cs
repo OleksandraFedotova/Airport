@@ -27,13 +27,20 @@ namespace Airport.Implementation.Hendlers.Query.AirCraftType
             {
                 throw new Exception("AirCraftTypes not found");
             }
-
-            var mappedAirCraftTypes = new AirCraftTypesResponse
+            try
             {
-                AirCraftTypes = types.Select(_mapper.Map<Domain.Entities.AirCraftType, AirCraftTypesResponse.AirCraftType>).ToList()
-            };
+                var mappedAirCraftTypes = new AirCraftTypesResponse
+                {
+                    AirCraftTypes = types.Select(_mapper.Map<Domain.Entities.AirCraftType, AirCraftTypesResponse.AirCraftType>).ToList()
+                };
 
-            return mappedAirCraftTypes;
+                return mappedAirCraftTypes;
+            }
+            catch(Exception e)
+            {
+
+            }
+            return null;
         }
     }
 }

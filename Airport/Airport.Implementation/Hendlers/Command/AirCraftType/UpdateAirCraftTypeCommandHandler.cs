@@ -24,7 +24,6 @@ namespace Airport.Implementation.Hendlers.Command
                 throw new Exception("AirCraftType with this Id does not exist");
             }
 
-
             airCraftType.LoadCapacity = command.LoadCapacity;
             airCraftType.Model = command.Model ?? airCraftType.Model;
             airCraftType.Seats = command.Seats;

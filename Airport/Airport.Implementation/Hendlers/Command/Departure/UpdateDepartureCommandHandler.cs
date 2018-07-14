@@ -1,7 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Departure;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using System;
 using System.Threading.Tasks;
 
@@ -24,7 +23,6 @@ namespace Airport.Implementation.Hendlers.Command
             {
                 throw new Exception("Departure with this Id does not exist");
             }
-
 
             departure.AirCraftId = command.AirCraftId;
             departure.CrewId = command.CrewId;

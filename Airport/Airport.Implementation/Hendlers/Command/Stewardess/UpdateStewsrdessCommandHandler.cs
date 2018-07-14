@@ -24,8 +24,8 @@ namespace Airport.Implementation.Hendlers.Command
                 throw new Exception("Stewardess with this Id does not exist");
             }
 
-            stewardess.FirstName = command.FirstName?? stewardess.FirstName;
-            stewardess.LastName = command.LastName?? stewardess.LastName;
+            stewardess.FirstName = command.FirstName ?? stewardess.FirstName;
+            stewardess.LastName = command.LastName ?? stewardess.LastName;
             stewardess.DateOfBirth = command.DateOfBirth;
 
             await _stewardessRepository.Update(stewardess);
