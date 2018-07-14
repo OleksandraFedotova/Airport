@@ -27,10 +27,10 @@ namespace Airport
             });
             services.AddCors();
 
-            services.AddSwaggerGen(c =>
+            /*services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-            });
+            });*/
 
             var builder = new ContainerBuilder();
 
@@ -60,7 +60,7 @@ namespace Airport
             }
 
             app.UseStaticFiles();
-
+/*
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -71,7 +71,7 @@ namespace Airport
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-
+    */
             app.UseMvc();
         }
     }

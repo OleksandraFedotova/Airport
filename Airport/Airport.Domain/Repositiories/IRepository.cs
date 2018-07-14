@@ -15,8 +15,8 @@ namespace Airport.Domain.Repositiories
 
         Task Create(TEntity entity);
 
-        Task Update(Guid id, TEntity entity);
+        Task Update(TEntity entity);
 
-        Task Delete(Guid id);
+        Task Delete(TEntity entity);
     }
 }

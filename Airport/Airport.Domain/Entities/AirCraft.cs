@@ -10,5 +10,6 @@ namespace Airport.Domain.Entities
         public AirCraftType AirCraftType { get; set; }
         public DateTime ReleaseDate { get; set; }
         public DateTime TimeSpan { get; set; }
+        public Guid Id { get; set; }
     }
 }

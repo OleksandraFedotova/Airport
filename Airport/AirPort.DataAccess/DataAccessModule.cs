@@ -7,10 +7,10 @@ namespace AirPort.DataAccess
         protected override void Load(ContainerBuilder builder)
         {
 
-            builder.RegisterType<FlightRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<CrewRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<AirCraftRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<AirCraftTypeRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<FlightRepository>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<CrewRepository>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<AirCraftRepository>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<AirCraftTypeRepository>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<PilotRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<StewardessRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<TicketRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();

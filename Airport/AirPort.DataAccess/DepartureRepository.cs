@@ -1,11 +1,14 @@
 ﻿using Airport.Domain.Entities;
+using Airport.Domain.Repositiories;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AirPort.DataAccess
 {
-    public class DepartureRepository: BaseRepository<Departure>
+    public class DepartureRepository : BaseRepository<Departure>, IDepartureRepository
     {
+        protected override void AddSeeds()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using Airport.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Airport.Domain.Repositiories;
 
 namespace AirPort.DataAccess
 {
-   public class AirCraftRepository :BaseRepository<AirCraft>
+    public class AirCraftRepository : BaseRepository<AirCraft>, IAirCraftRepository
     {
+        protected override void AddSeeds()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
