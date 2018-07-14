@@ -29,7 +29,7 @@ namespace Airport.Implementation.Hendlers.Command
             stewardess.LastName = command.LastName?? stewardess.LastName;
             stewardess.DateOfBirth = command.DateOfBirth;
 
-            await _stewardessRepository.Update(command.Id, stewardess);
+            await _stewardessRepository.Update(stewardess);
         }
     }
 }

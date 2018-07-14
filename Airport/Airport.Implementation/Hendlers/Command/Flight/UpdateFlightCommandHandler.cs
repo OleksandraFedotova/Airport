@@ -37,7 +37,7 @@ namespace Airport.Implementation.Hendlers.Command
             flight.Number = command.Number;
             flight.Tickets=_ticketRepository.GetAll().Where(y=>command.TicketsId.Contains(y.Id));
 
-            await _flightRepository.Update(command.FlightId, flight);
+            await _flightRepository.Update(flight);
         }
     }
 }

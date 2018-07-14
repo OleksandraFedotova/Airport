@@ -24,7 +24,7 @@ namespace Airport.Implementation.Hendlers.Command.Crew
                 throw new Exception("Crew with same Id already exists");
             }
 
-            await _crewRepository.Delete(command.CrewId);
+            await _crewRepository.Delete(crew);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Airport.Implementation.Hendlers.Command.Pilot
                 throw new Exception("Stewardess with same Id already exists");
             }
 
-            await _stewardessRepository.Delete(command.StewardessId);
+            await _stewardessRepository.Delete(stewardess);
         }
     }
 }

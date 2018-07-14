@@ -29,7 +29,7 @@ namespace Airport.Implementation.Hendlers.Command
             departure.DepartureDate = command.DepartureDate;
             departure.FlightNumber = command.FlightNumber;
 
-            await _departureRepository.Update(command.DepartureId, departure);
+            await _departureRepository.Update(departure);
         }
     }
 }

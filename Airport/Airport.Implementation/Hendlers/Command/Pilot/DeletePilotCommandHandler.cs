@@ -26,7 +26,7 @@ namespace Airport.Implementation.Hendlers.Command.Pilot
                 throw new Exception("Pilot with same Id already exists");
             }
 
-            await _pilotRepository.Delete(command.PilotId);
+            await _pilotRepository.Delete(pilot);
         }
     }
 }

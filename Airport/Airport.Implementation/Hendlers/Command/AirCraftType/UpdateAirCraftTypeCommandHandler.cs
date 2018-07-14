@@ -29,7 +29,7 @@ namespace Airport.Implementation.Hendlers.Command
             airCraftType.Model = command.Model ?? airCraftType.Model;
             airCraftType.Seats = command.Seats;
 
-            await _airCraftTypeRepository.Update(command.AirCraftTypeId, airCraftType);
+            await _airCraftTypeRepository.Update(airCraftType);
         }
     }
 }

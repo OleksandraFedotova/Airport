@@ -24,7 +24,7 @@ namespace Airport.Implementation.Hendlers.Command.AirCraft
                 throw new Exception("AirCraft with same Id already exists");
             }
 
-            await _airCraftRepository.Delete(command.AirCraftId);
+            await _airCraftRepository.Delete(airCraft);
         }
     }
 }

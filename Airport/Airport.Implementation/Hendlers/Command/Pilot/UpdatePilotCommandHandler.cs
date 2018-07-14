@@ -30,7 +30,7 @@ namespace Airport.Implementation.Hendlers.Command
             pilot.DateOfBirth = command.DateOfBirth;
             pilot.Experience = command.Experience;
 
-            await _pilotRepository.Update(command.Id,pilot);
+            await _pilotRepository.Update(pilot);
         }
     }
 }

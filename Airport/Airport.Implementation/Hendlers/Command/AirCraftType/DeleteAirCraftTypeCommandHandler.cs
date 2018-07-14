@@ -26,7 +26,7 @@ namespace Airport.Implementation.Hendlers.Command.AirCraftType
                 throw new Exception("AirCraftType with same Id already exists");
             }
 
-            await _airCraftTypeRepository.Delete(command.AirCraftTypeId);
+            await _airCraftTypeRepository.Delete(airCraftType);
         }
     }
 }

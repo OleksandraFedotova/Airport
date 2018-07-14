@@ -26,7 +26,7 @@ namespace Airport.Implementation.Hendlers.Command.Departure
                 throw new Exception("Departure with same Id already exists");
             }
 
-            await _departureRepository.Delete(command.DepartureId);
+            await _departureRepository.Delete(departure);
         }
     }
 }

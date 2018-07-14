@@ -33,7 +33,7 @@ namespace Airport.Implementation.Hendlers.Command
             crew.Pilot = _pilotRepository.GetById(command.PilotId).Result;
             crew.Stewardesses = _stewardessRepository.GetAll().Where(y => command.StewardressesId.Contains(y.Id));
 
-            await _crewRepository.Update(command.CrewId, crew);
+            await _crewRepository.Update(crew);
         }
     }
 }

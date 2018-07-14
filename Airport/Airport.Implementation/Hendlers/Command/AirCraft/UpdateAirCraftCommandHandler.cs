@@ -29,7 +29,7 @@ namespace Airport.Implementation.Hendlers.Command
             airCraft.ReleaseDate = command.ReleaseDate;
             airCraft.TimeSpan = command.TimeSpan;
 
-            await _airCraftRepository.Update(command.AirCraftId, airCraft);
+            await _airCraftRepository.Update(airCraft);
         }
     }
 }
