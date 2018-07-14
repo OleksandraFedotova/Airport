@@ -1,37 +1,29 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Pilot;
+using Airport.Contract.Command.Ticket;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
-using AutoMapper;
 using System;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Command
 {
-    public class UpdateTicketCommandHandler : ICommandHandler<UpdatePilotCommand>
+    public class UpdateTicketCommandHandler : ICommandHandler<UpdateTicketCommand>
     {
-        private readonly IPilotRepository _pilotRepository;
+        private readonly ITicketRepository _ticketRepository;
 
-        public UpdateTicketCommandHandler(IPilotRepository pilotRepository)
+        public UpdateTicketCommandHandler(ITicketRepository ticketRepository)
         {
-            _pilotRepository = pilotRepository;
+            _ticketRepository = ticketRepository;
         }
 
-        public async Task ExecuteAsync(UpdatePilotCommand command)
+        public async Task ExecuteAsync(UpdateTicketCommand command)
         {
-            var pilot = await _pilotRepository.GetById(command.Id);
+            var ticket = await _ticketRepository.GetById(command.Id);
 
-            if (pilot != null)
-            {
-                throw new Exception("Ticket with same Id already exists");
-            }
+            ticket.Price = command.Price;
+            ticket.FlightNumber = command.FlightNumber;
 
-            pilot.FirstName = command.FirstName??pilot.FirstName;
-            pilot.LastName = command.LastName??pilot.LastName;
-            pilot.DateOfBirth = command.DateOfBirth;
-            pilot.Experience = command.Experience;
-
-            await _pilotRepository.Update(pilot);
+            await _ticketRepository.Update(ticket);
         }
     }
 }

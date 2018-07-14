@@ -26,9 +26,9 @@ namespace Airport.Implementation.Hendlers.Command
         {
             var flight = await _flightRepository.GetById(command.FlightId);
 
-            if (flight != null)
+            if (flight == null)
             {
-                throw new Exception("Flight with same Id already exists");
+                throw new Exception("Flight with this Id does not exist");
             }
 
             flight.DeparturePoint = command.DeparturePoint ?? flight.DeparturePoint;

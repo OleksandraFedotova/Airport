@@ -20,10 +20,11 @@ namespace Airport.Implementation.Hendlers.Command
         {
             var departure = await _departureRepository.GetById(command.DepartureId);
 
-            if (departure != null)
+            if (departure == null)
             {
-                throw new Exception("Departure with same Id already exists");
+                throw new Exception("Departure with this Id does not exist");
             }
+
 
             departure.AirCraftId = command.AirCraftId;
             departure.CrewId = command.CrewId;

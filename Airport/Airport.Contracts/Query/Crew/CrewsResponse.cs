@@ -1,11 +1,10 @@
 ﻿using Abstractions.CQRS;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Airport.Contract.Query.Crew
 {
-   public class CrewsResponse:IResponse 
+    public class CrewsResponse:IResponse 
     {
        public IEnumerable<Crew> Crews { get; set; }
         public class Crew

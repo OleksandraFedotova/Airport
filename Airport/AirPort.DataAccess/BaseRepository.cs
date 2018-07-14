@@ -42,7 +42,8 @@ namespace AirPort.DataAccess
 
         public Task<TEntity> GetById(Guid id)
         {
-           return Task.FromResult(_entities[id]);
+            var u= Task.FromResult(_entities.Values.Where(x=>x.Id==id).FirstOrDefault());
+            return u;
         }
 
         public Task Update(TEntity entity)

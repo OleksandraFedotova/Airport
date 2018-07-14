@@ -1,8 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Stewardress;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
-using AutoMapper;
 using System;
 using System.Threading.Tasks;
 
@@ -21,9 +19,9 @@ namespace Airport.Implementation.Hendlers.Command
         {
             var stewardess = await _stewardessRepository.GetById(command.Id);
 
-            if (stewardess != null)
+            if (stewardess == null)
             {
-                throw new Exception("Stewardess with same Id already exists");
+                throw new Exception("Stewardess with this Id does not exist");
             }
 
             stewardess.FirstName = command.FirstName?? stewardess.FirstName;

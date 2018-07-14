@@ -5,6 +5,7 @@ using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Query.Crew
@@ -29,14 +30,13 @@ namespace Airport.Implementation.Hendlers.Query.Crew
                 throw new Exception("Flights not found");
             }
 
-            var mappedCrew = _mapper.Map<FlightsResponse>(flights);
+            var mappedCrew = new FlightsResponse
+            {
+                Flights = flights.Select(_mapper.Map<Domain.Entities.Flight, FlightsResponse.Flight>).ToList()
+            };
 
             return mappedCrew;
         }
 
-        Task<FlightsResponse> IQueryHandler<FlightsQuery, FlightsResponse>.ExecuteAsync(FlightsQuery request)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

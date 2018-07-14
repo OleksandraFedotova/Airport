@@ -4,6 +4,7 @@ using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Query.AirCraft
@@ -28,9 +29,12 @@ namespace Airport.Implementation.Hendlers.Query.AirCraft
                 throw new Exception("AirCrafts not found");
             }
 
-            var mappedAirCraft = _mapper.Map<AirCraftsResponse>(airCrafts);
+            var mappedAirCrafts = new AirCraftsResponse
+            {
+                 AirCrafts= airCrafts.Select(_mapper.Map<Domain.Entities.AirCraft, AirCraftsResponse.AirCraft>).ToList()
+            };
 
-            return mappedAirCraft;
+            return mappedAirCrafts;
         }
     }
 }

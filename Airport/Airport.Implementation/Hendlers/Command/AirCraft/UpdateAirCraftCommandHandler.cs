@@ -20,10 +20,11 @@ namespace Airport.Implementation.Hendlers.Command
         {
             var airCraft = await _airCraftRepository.GetById(command.AirCraftId);
 
-            if (airCraft != null)
+            if (airCraft == null)
             {
-                throw new Exception("AirCraft with same Id already exists");
+                throw new Exception("AirCraft with this Id does not exist");
             }
+
 
             airCraft.Name = command.Name ?? airCraft.Name;
             airCraft.TypeId = command.TypeId;

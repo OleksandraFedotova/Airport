@@ -21,9 +21,9 @@ namespace Airport.Implementation.Hendlers.Command
         {
             var pilot = await _pilotRepository.GetById(command.Id);
 
-            if (pilot != null)
+            if (pilot == null)
             {
-                throw new Exception("Pilot with same Id already exists");
+                throw new Exception("Pilot with this Id does not exist");
             }
 
             pilot.FirstName = command.FirstName??pilot.FirstName;

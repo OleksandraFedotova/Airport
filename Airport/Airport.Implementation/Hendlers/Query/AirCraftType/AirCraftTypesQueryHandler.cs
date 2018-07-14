@@ -1,36 +1,39 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.AirCraftType;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using AutoMapper;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Query.AirCraftType
 {
     public class AirCraftTypesQueryHandler : IQueryHandler<AirCraftTypesQuery, AirCraftTypesResponse>
     {
-        private readonly IAirCraftTypeRepository _crewRepository;
+        private readonly IAirCraftTypeRepository _airCraftTypeRepository;
         private readonly IMapper _mapper;
 
-        public AirCraftTypesQueryHandler(IAirCraftTypeRepository crewRepository, IMapper mapper)
+        public AirCraftTypesQueryHandler(IAirCraftTypeRepository airCraftTypeRepository, IMapper mapper)
         {
-            _crewRepository = crewRepository;
+            _airCraftTypeRepository = airCraftTypeRepository;
             _mapper = mapper;
         }
 
         public async Task<AirCraftTypesResponse> ExecuteAsync(AirCraftTypesQuery request)
         {
-            var crews = _crewRepository.GetAll();
+            var types = _airCraftTypeRepository.GetAll();
 
-            if (crews == null)
+            if (types == null)
             {
                 throw new Exception("AirCraftTypes not found");
             }
 
-            var mappedAirCraftType = _mapper.Map<AirCraftTypesResponse>(crews);
+            var mappedAirCraftTypes = new AirCraftTypesResponse
+            {
+                AirCraftTypes = types.Select(_mapper.Map<Domain.Entities.AirCraftType, AirCraftTypesResponse.AirCraftType>).ToList()
+            };
 
-            return mappedAirCraftType;
+            return mappedAirCraftTypes;
         }
     }
 }

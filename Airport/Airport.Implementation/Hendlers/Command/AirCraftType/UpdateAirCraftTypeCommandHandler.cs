@@ -19,10 +19,11 @@ namespace Airport.Implementation.Hendlers.Command
         {
             var airCraftType = await _airCraftTypeRepository.GetById(command.AirCraftTypeId);
 
-            if (airCraftType != null)
+            if (airCraftType == null)
             {
-                throw new Exception("AirCraftType with same Id already exists");
+                throw new Exception("AirCraftType with this Id does not exist");
             }
+
 
             airCraftType.LoadCapacity = command.LoadCapacity;
             airCraftType.Model = command.Model ?? airCraftType.Model;

@@ -25,12 +25,13 @@ namespace Airport.Implementation.Hendlers.Command
         {
             var crew = await _crewRepository.GetById(command.CrewId);
 
-            if (crew != null)
+            if (crew == null)
             {
-                throw new Exception("Crew with same Id already exists");
+                throw new Exception("Crew with this Id does not exist");
             }
 
-           
+
+
             crew.Pilot = _pilotRepository.GetById(command.PilotId).Result;
             crew.Stewardesses = _stewardessRepository.GetAll().Where(y => command.StewardressesId.Contains(y.Id));
 

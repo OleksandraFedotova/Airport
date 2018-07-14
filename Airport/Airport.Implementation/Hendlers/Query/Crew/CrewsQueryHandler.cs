@@ -1,9 +1,9 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.Crew;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using AutoMapper;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Query.Crew
@@ -28,14 +28,14 @@ namespace Airport.Implementation.Hendlers.Query.Crew
                 throw new Exception("Crews not found");
             }
 
-            var mappedCrew = _mapper.Map<CrewsResponse>(crews);
+            var mappedCrew = new CrewsResponse
+            {
+                Crews = crews.Select(_mapper.Map<Domain.Entities.Crew, CrewsResponse.Crew>).ToList()
+            };
+
 
             return mappedCrew;
         }
 
-        Task<CrewsResponse> IQueryHandler<CrewsQuery, CrewsResponse>.ExecuteAsync(CrewsQuery request)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

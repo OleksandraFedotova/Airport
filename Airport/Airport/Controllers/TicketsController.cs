@@ -92,6 +92,7 @@ namespace Airport.Web.Controllers
 
             var command = new UpdateTicketCommand
             {
+                Id=model.Id,
                 FlightNumber=model.FlightNumber,
                 Price=model.Price
             };

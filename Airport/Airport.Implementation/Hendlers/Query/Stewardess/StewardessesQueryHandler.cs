@@ -1,9 +1,9 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.Stewardess;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using AutoMapper;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Query.Stewardess
@@ -28,14 +28,13 @@ namespace Airport.Implementation.Hendlers.Query.Stewardess
                 throw new Exception("Stewardesses not found");
             }
 
-            var mappedStewardess = _mapper.Map<StewardessesResponse>(stewardesss);
+            var mappedStewardess = new StewardessesResponse
+            {
+                Stewardesses = stewardesss.Select(_mapper.Map<Domain.Entities.Stewardess, StewardessesResponse.Stewardess>).ToList()
+            };
 
             return mappedStewardess;
         }
 
-        Task<StewardessesResponse> IQueryHandler<StewardessesQuery, StewardessesResponse>.ExecuteAsync(StewardessesQuery request)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

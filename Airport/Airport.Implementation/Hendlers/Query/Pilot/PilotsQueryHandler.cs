@@ -1,9 +1,9 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.Pilot;
 using Airport.Domain.Repositiories;
-using AirPort.DataAccess;
 using AutoMapper;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Airport.Implementation.Hendlers.Query.Pilot
@@ -28,14 +28,15 @@ namespace Airport.Implementation.Hendlers.Query.Pilot
                 throw new Exception("Pilots not found");
             }
 
-            var mappedPilot = _mapper.Map<PilotsResponse>(pilots);
+            var mappedPilot = new PilotsResponse
+            {
+                Pilots = pilots.Select(_mapper.Map<Domain.Entities.Pilot, PilotsResponse.Pilot>).ToList()
+            };
+
+
 
             return mappedPilot;
         }
 
-        Task<PilotsResponse> IQueryHandler<PilotsQuery, PilotsResponse>.ExecuteAsync(PilotsQuery request)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
