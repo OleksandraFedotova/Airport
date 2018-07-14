@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.AirCraft;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using System;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace Airport.Implementation.Hendlers.Command.AirCraft
 {
     public class DeleteAirCraftCommandHandler : ICommandHandler<DeleteAirCraftCommand>
     {
-        private readonly AirCraftRepository _airCraftRepository;
+        private readonly IAirCraftRepository _airCraftRepository;
 
-        public DeleteAirCraftCommandHandler(AirCraftRepository airCraftRepository)
+        public DeleteAirCraftCommandHandler(IAirCraftRepository airCraftRepository)
         {
             _airCraftRepository = airCraftRepository;
         }

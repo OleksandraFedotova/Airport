@@ -1,6 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Flight;
 using Airport.Domain.Entities;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using System;
 using System.Linq;
@@ -10,10 +11,10 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class CreateFlightCommandHandler : ICommandHandler<CreateFlightCommand>
     {
-        private readonly FlightRepository _flightRepository;
-        private readonly TicketRepository _ticketRepository;
+        private readonly IFlightRepository _flightRepository;
+        private readonly ITicketRepository _ticketRepository;
 
-        public CreateFlightCommandHandler(FlightRepository flightRepository, TicketRepository ticketRepository)
+        public CreateFlightCommandHandler(IFlightRepository flightRepository, ITicketRepository ticketRepository)
         {
             _flightRepository = flightRepository;
             _ticketRepository = ticketRepository;

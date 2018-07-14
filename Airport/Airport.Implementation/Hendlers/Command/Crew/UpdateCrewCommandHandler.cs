@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Crew;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using System;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class UpdateCrewCommandHandler : ICommandHandler<UpdateCrewCommand>
     {
-        private readonly CrewRepository _crewRepository;
-        private readonly PilotRepository _pilotRepository;
-        private readonly StewardessRepository _stewardessRepository;
+        private readonly ICrewRepository _crewRepository;
+        private readonly IPilotRepository _pilotRepository;
+        private readonly IStewardessRepository _stewardessRepository;
 
-        public UpdateCrewCommandHandler(CrewRepository crewRepository,PilotRepository pilotRepository, StewardessRepository stewardessRepository)
+        public UpdateCrewCommandHandler(ICrewRepository crewRepository,IPilotRepository pilotRepository, IStewardessRepository stewardessRepository)
         {
             _crewRepository = crewRepository;
             _pilotRepository = pilotRepository;

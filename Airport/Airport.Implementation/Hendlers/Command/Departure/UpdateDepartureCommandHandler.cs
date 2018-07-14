@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Departure;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using System;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class UpdateDepartureCommandHandler : ICommandHandler<UpdateDepartureCommand>
     {
-        private readonly DepartureRepository _departureRepository;
+        private readonly IDepartureRepository _departureRepository;
 
-        public UpdateDepartureCommandHandler(DepartureRepository departureRepository)
+        public UpdateDepartureCommandHandler(IDepartureRepository departureRepository)
         {
             _departureRepository = departureRepository;
         }

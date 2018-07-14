@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Pilot;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -9,9 +10,9 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class UpdateTicketCommandHandler : ICommandHandler<UpdatePilotCommand>
     {
-        private readonly PilotRepository _pilotRepository;
+        private readonly IPilotRepository _pilotRepository;
 
-        public UpdateTicketCommandHandler(PilotRepository pilotRepository)
+        public UpdateTicketCommandHandler(IPilotRepository pilotRepository)
         {
             _pilotRepository = pilotRepository;
         }

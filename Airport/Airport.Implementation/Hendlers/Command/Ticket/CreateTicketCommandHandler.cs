@@ -1,6 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Pilot;
 using Airport.Contract.Command.Ticket;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -10,10 +11,10 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class CreateTicketCommandHandler : ICommandHandler<CreateTicketCommand>
     {
-        private readonly TicketRepository _ticketRepository;
+        private readonly ITicketRepository _ticketRepository;
         private readonly IMapper _mapper;
 
-        public CreateTicketCommandHandler(TicketRepository ticketRepository, IMapper mapper)
+        public CreateTicketCommandHandler(ITicketRepository ticketRepository, IMapper mapper)
         {
             _ticketRepository = ticketRepository;
             _mapper = mapper;

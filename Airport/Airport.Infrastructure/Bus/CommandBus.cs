@@ -17,14 +17,14 @@ namespace Infrastructure.Bus
 
         public async Task ExecuteAsync<TCommand>(TCommand command) where TCommand : ICommand
         {
-            var handler = _container.ResolveOptional<ICommandHandler<TCommand>>();
+                var handler = _container.ResolveOptional<ICommandHandler<TCommand>>();
+                if (handler == null)
+                {
+                    throw new Exception("Unknown command");
+                }
 
-            if (handler == null)
-            {
-                throw new Exception("Unknown command");
-            }
-
-            await handler.ExecuteAsync(command);
+                await handler.ExecuteAsync(command);
+         
         }
     }
 }

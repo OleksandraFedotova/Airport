@@ -1,6 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Pilot;
 using Airport.Contract.Command.Ticket;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace Airport.Implementation.Hendlers.Command.Pilot
 {
     public class DeleteTicketCommandHandler : ICommandHandler<DeleteTicketCommand>
     {
-        private readonly TicketRepository _ticketRepository;
+        private readonly ITicketRepository _ticketRepository;
 
-        public DeleteTicketCommandHandler(TicketRepository ticketRepository)
+        public DeleteTicketCommandHandler(ITicketRepository ticketRepository)
         {
             _ticketRepository = ticketRepository;
         }

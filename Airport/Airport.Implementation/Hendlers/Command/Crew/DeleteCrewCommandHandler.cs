@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Crew;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using System;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace Airport.Implementation.Hendlers.Command.Crew
 {
     public class DeleteCrewCommandHandler : ICommandHandler<DeleteCrewCommand>
     {
-        private readonly CrewRepository _crewRepository;
+        private readonly ICrewRepository _crewRepository;
 
-        public DeleteCrewCommandHandler(CrewRepository crewRepository)
+        public DeleteCrewCommandHandler(ICrewRepository crewRepository)
         {
             _crewRepository = crewRepository;
         }

@@ -1,6 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Flight;
 using Airport.Contract.Command.Pilot;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace Airport.Implementation.Hendlers.Command.Pilot
 {
     public class DeleteFlightCommandHandler : ICommandHandler<DeleteFlightCommand>
     {
-        private readonly FlightRepository _flightRepository;
+        private readonly IFlightRepository _flightRepository;
 
-        public DeleteFlightCommandHandler(FlightRepository flightRepository)
+        public DeleteFlightCommandHandler(IFlightRepository flightRepository)
         {
             _flightRepository = flightRepository;
         }

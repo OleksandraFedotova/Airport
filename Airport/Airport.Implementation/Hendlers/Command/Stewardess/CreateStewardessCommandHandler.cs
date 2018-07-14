@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Stewardress;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -9,10 +10,10 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class CreateStewardessCommandHandler : ICommandHandler<CreateStewardessCommand>
     {
-        private readonly StewardessRepository _stewardessRepository;
+        private readonly IStewardessRepository _stewardessRepository;
         private readonly IMapper _mapper;
 
-        public CreateStewardessCommandHandler(StewardessRepository stewardessRepository, IMapper mapper)
+        public CreateStewardessCommandHandler(IStewardessRepository stewardessRepository, IMapper mapper)
         {
             _stewardessRepository = stewardessRepository;
             _mapper = mapper;

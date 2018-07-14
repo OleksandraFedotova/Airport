@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Stewardress;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -9,9 +10,9 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class UpdateStewsrdessCommandHandler : ICommandHandler<UpdateStewardressCommand>
     {
-        private readonly StewardessRepository _stewardessRepository;
+        private readonly IStewardessRepository _stewardessRepository;
 
-        public UpdateStewsrdessCommandHandler(StewardessRepository stewardessRepository)
+        public UpdateStewsrdessCommandHandler(IStewardessRepository stewardessRepository)
         {
             _stewardessRepository = stewardessRepository;
         }

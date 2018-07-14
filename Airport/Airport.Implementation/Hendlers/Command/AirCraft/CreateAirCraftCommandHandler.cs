@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.AirCraft;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -9,10 +10,10 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class CreateAirCraftCommandHandler : ICommandHandler<CreateAirCraftCommand>
     {
-        private readonly AirCraftRepository _airCraftRepository;
+        private readonly IAirCraftRepository _airCraftRepository;
         private readonly IMapper _mapper;
 
-        public CreateAirCraftCommandHandler(AirCraftRepository airCraftRepository, IMapper mapper)
+        public CreateAirCraftCommandHandler(IAirCraftRepository airCraftRepository, IMapper mapper)
         {
             _airCraftRepository = airCraftRepository;
             _mapper = mapper;

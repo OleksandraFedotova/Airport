@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.Pilot;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -9,10 +10,10 @@ namespace Airport.Implementation.Hendlers.Query.Pilot
 {
     public class PilotByIdQueryHandler : IQueryHandler<PilotByIdQuery, PilotByIdResponse>
     {
-        private readonly PilotRepository _pilotRepository;
+        private readonly IPilotRepository _pilotRepository;
         private readonly IMapper _mapper;
 
-        public PilotByIdQueryHandler(PilotRepository pilotRepository, IMapper mapper)
+        public PilotByIdQueryHandler(IPilotRepository pilotRepository, IMapper mapper)
         {
             _pilotRepository = pilotRepository;
             _mapper = mapper;

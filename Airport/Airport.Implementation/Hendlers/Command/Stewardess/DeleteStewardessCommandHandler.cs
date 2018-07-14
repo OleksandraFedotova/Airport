@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Stewardress;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using System;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace Airport.Implementation.Hendlers.Command.Pilot
 {
     public class DeleteStewardressCommandHandler : ICommandHandler<DeleteStewardessCommand>
     {
-        private readonly StewardessRepository _stewardessRepository;
+        private readonly IStewardessRepository _stewardessRepository;
 
-        public DeleteStewardressCommandHandler(StewardessRepository stewardessRepository)
+        public DeleteStewardressCommandHandler(IStewardessRepository stewardessRepository)
         {
             _stewardessRepository = stewardessRepository;
         }

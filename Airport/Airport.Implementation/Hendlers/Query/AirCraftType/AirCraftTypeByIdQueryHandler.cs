@@ -1,6 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.AirCraft;
 using Airport.Contract.Query.AirCraftType;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -10,10 +11,10 @@ namespace Airport.Implementation.Hendlers.Query.AirCraftType
 {
     public class AirCraftTypeByIdQueryHandler : IQueryHandler<AirCraftTypeByIdQuery, AirCraftTypeByIdResponse>
     {
-        private readonly AirCraftTypeRepository _airCraftTypeRepository;
+        private readonly IAirCraftTypeRepository _airCraftTypeRepository;
         private readonly IMapper _mapper;
 
-        public AirCraftTypeByIdQueryHandler(AirCraftTypeRepository airCraftTypeRepository, IMapper mapper)
+        public AirCraftTypeByIdQueryHandler(IAirCraftTypeRepository airCraftTypeRepository, IMapper mapper)
         {
             _airCraftTypeRepository = airCraftTypeRepository;
             _mapper = mapper;

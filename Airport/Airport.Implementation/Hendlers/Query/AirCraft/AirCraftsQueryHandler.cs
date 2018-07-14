@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.AirCraft;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -9,10 +10,10 @@ namespace Airport.Implementation.Hendlers.Query.AirCraft
 {
     public class AirCraftsQueryHandler : IQueryHandler<AirCraftsQuery, AirCraftsResponse>
     {
-        private readonly AirCraftRepository _airCraftRepository;
+        private readonly IAirCraftRepository _airCraftRepository;
         private readonly IMapper _mapper;
 
-        public AirCraftsQueryHandler(AirCraftRepository airCraftRepository, IMapper mapper)
+        public AirCraftsQueryHandler(IAirCraftRepository airCraftRepository, IMapper mapper)
         {
             _airCraftRepository = airCraftRepository;
             _mapper = mapper;

@@ -10,7 +10,6 @@ namespace AirPort.DataAccess
     {
         protected override void AddSeeds()
         {
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.Crew;
 using Airport.Contract.Query.Flight;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -10,18 +11,18 @@ namespace Airport.Implementation.Hendlers.Query.Crew
 {
     public class FlightsQueryHandler : IQueryHandler<FlightsQuery, FlightsResponse>
     {
-        private readonly CrewRepository _crewRepository;
+        private readonly IFlightRepository _flightRepository;
         private readonly IMapper _mapper;
 
-        public FlightsQueryHandler(CrewRepository crewRepository, IMapper mapper)
+        public FlightsQueryHandler(IFlightRepository flightRepository, IMapper mapper)
         {
-            _crewRepository = crewRepository;
+            _flightRepository = flightRepository;
             _mapper = mapper;
         }
 
         public async Task<FlightsResponse> ExecuteAsync(FlightsQuery request)
         {
-            var flights = _crewRepository.GetAll();
+            var flights = _flightRepository.GetAll();
 
             if (flights == null)
             {

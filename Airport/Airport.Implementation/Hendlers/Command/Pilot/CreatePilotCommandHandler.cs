@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Command.Pilot;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -9,10 +10,10 @@ namespace Airport.Implementation.Hendlers.Command
 {
     public class CreatePilotCommandHandler : ICommandHandler<CreatePilotCommand>
     {
-        private readonly PilotRepository _pilotRepository;
+        private readonly IPilotRepository _pilotRepository;
         private readonly IMapper _mapper;
 
-        public CreatePilotCommandHandler(PilotRepository pilotRepository, IMapper mapper)
+        public CreatePilotCommandHandler(IPilotRepository pilotRepository, IMapper mapper)
         {
             _pilotRepository = pilotRepository;
             _mapper = mapper;

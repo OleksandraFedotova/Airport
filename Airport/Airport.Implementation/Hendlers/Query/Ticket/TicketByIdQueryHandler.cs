@@ -1,5 +1,6 @@
 ﻿using Abstractions.CQRS;
 using Airport.Contract.Query.Ticket;
+using Airport.Domain.Repositiories;
 using AirPort.DataAccess;
 using AutoMapper;
 using System;
@@ -9,10 +10,10 @@ namespace Airport.Implementation.Hendlers.Query.Ticket
 {
     public class TicketByIdQueryHandler : IQueryHandler<TicketByIdQuery, TicketByIdResponse>
     {
-        private readonly TicketRepository _ticketRepository;
+        private readonly ITicketRepository _ticketRepository;
         private readonly IMapper _mapper;
 
-        public TicketByIdQueryHandler(TicketRepository ticketRepository, IMapper mapper)
+        public TicketByIdQueryHandler(ITicketRepository ticketRepository, IMapper mapper)
         {
             _ticketRepository = ticketRepository;
             _mapper = mapper;

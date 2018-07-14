@@ -12,19 +12,19 @@ namespace AirPort.DataAccess
 
             
             _entities.Add(new KeyValuePair<Guid, Ticket>(
-            new Guid(),
+            Guid.NewGuid(),
             new Ticket
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 FlightNumber = 879809,
                 Price = 500
             }));
 
             _entities.Add(new KeyValuePair<Guid, Ticket>(
-            new Guid(),
+            Guid.NewGuid(),
             new Ticket
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 FlightNumber = 3573732,
                 Price = 450
             }));
